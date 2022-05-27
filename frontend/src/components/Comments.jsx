@@ -35,7 +35,9 @@ const Comments = ({ comments }) => {
                             </Box>
                             <Box as="footer">
                                 {replies?.length > 0 && (
-                                    <Text>{replies.length} replies</Text>
+                                    <Heading fontSize="1rem" color={colorMode === "light" ? "blue.600": "blue.200"} mt="1rem">
+                                        {replies.length} replies
+                                    </Heading>
                                 )}
                             </Box>
                         </Box>
