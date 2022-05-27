@@ -1,40 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { faker } from '@faker-js/faker'
-
-// const initialState = () => {
-//     return Array.from({ length: 10 }, () => {
-//         return {
-//             id: faker.random.alphaNumeric(10),
-//             title: faker.lorem.sentence(),
-//             content: faker.lorem.paragraphs(3),
-//             author: faker.name.findName(),
-//             date: faker.date.past(),
-//             comments: Array.from({ length: faker.random.numeric() }, () => {
-//                 return {
-//                     name: faker.name.findName(),
-//                     content: faker.lorem.paragraphs(1),
-//                     date: faker.date.past(),
-//                     replies: Array.from({ length: faker.random.numeric() }, () => {
-//                         return {
-//                             name: faker.name.findName(),
-//                             content: faker.lorem.paragraphs(1),
-//                             date: faker.date.past(),
-//                             replies: Array.from({ length: faker.random.numeric() }, () => {
-//                                 return {
-//                                     name: faker.name.findName(),
-//                                     content: faker.lorem.paragraphs(1),
-//                                     date: faker.date.past()
-//                                 }
-//                             })
-//                         }
-//                     })
-//                 }
-//             })
-//         }
-//     });
-// }
-
-const initialState = [
+[
     {
         "id": "2nh5gv6uxs",
         "title": "Fuga cumque officia quam minima id.",
@@ -10168,17 +10132,3 @@ const initialState = [
         ]
     }
 ]
-
-
-const postsSlice = createSlice({
-    name: 'posts',
-    initialState,
-    reducers: {
-        addPost: (state, action) => {
-            state.unshift(action.payload)
-        }
-    },
-})
-
-export const { addPost } = postsSlice.actions
-export default postsSlice.reducer
