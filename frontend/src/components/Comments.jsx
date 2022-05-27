@@ -6,6 +6,7 @@ import {
     Text,
     useColorMode,
 } from "@chakra-ui/react";
+import React from "react";
 
 const Comments = ({ comments }) => {
     const { colorMode } = useColorMode();
@@ -14,9 +15,8 @@ const Comments = ({ comments }) => {
             {comments?.map((comment, i) => {
                 const { name, content, date, replies } = comment;
                 return (
-                    <>
+                    <React.Fragment key={i}>
                         <Box
-                            key={i}
                             as="article"
                             bgColor={
                                 colorMode === "dark" ? "gray.700" : "gray.200"
@@ -61,7 +61,7 @@ const Comments = ({ comments }) => {
                                 <Comments comments={replies} />
                             </Flex>
                         )}
-                    </>
+                    </React.Fragment>
                 );
             })}
         </>

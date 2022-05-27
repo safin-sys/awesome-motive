@@ -15,7 +15,7 @@ const PostsList = () => {
     const totalPages = Math.ceil(posts.length / postPerPage);
 
     const { onOpen, onClose, isOpen } = useDisclosure();
-    console.log(posts);
+
     useEffect(() => {
         setPostList(
             posts.slice(page * postPerPage, page * postPerPage + postPerPage)

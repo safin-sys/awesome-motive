@@ -1,6 +1,8 @@
-import { Container, Flex, Heading, Text } from "@chakra-ui/react";
+import { Container, Flex, Heading, Skeleton, Text } from "@chakra-ui/react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
+import AddComment from "../src/components/AddComment";
 import Comments from "../src/components/Comments";
 import Nav from "../src/components/Nav";
 
@@ -10,10 +12,16 @@ const Post = () => {
     const { title, content, date, comments } = useSelector(state => state.posts.find(post => post.id === id)) || {};
     return (
         <Container>
+            <Head>
+                <title>{title}</title>
+            </Head>
             <Nav />
-            <Heading mt="4rem">{title}</Heading>
-            <Text>{date}</Text>
-            <Text mt="2rem" mb="4rem">{content}</Text>
+            <Skeleton isLoaded={title && date && content} minH="300px">
+                <Heading mt="4rem">{title}</Heading>
+                <Text>{date}</Text>
+                <Text mt="2rem">{content}</Text>
+            </Skeleton>
+            <AddComment id={id} />
             <Flex flexDir="column" gap=".5rem" mb="2rem">
                 <Comments comments={comments} />
             </Flex>
