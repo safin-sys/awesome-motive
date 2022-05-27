@@ -30,6 +30,7 @@ const CreatePostModal = ({ isOpen, onClose }) => {
             title,
             content,
             date,
+            id: String(Date.now()),
         };
         dispatch(addPost(post));
         toast({

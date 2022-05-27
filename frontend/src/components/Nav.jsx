@@ -1,4 +1,4 @@
-import { Button, Flex, Heading, useColorMode } from "@chakra-ui/react";
+import { Button, Flex, Heading, Image, useColorMode } from "@chakra-ui/react";
 import Link from "next/link";
 
 const Nav = () => {
@@ -12,7 +12,10 @@ const Nav = () => {
         >
             <Link href="/">
                 <a>
-                    <Heading>AM Blog</Heading>
+                    <Image
+                        src="https://awesomemotive.com/wp-content/themes/amthemenew/assets/images/am-logo-dark.svg"
+                        alt="logo"
+                    />
                 </a>
             </Link>
             <Button onClick={toggleColorMode}>
