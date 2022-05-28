@@ -73,7 +73,7 @@ app.post("/", (req, res) => {
     console.log(req.body)
     json.unshift(req.body)
 
-    fs.writeFileSync("./posts.json", JSON.stringify(json))
+    fs.writeFileSync("./posts.json", JSON.stringify(json, null, 4))
 
     res.json(req.body)
 })
@@ -87,7 +87,7 @@ app.post("/:id", (req, res) => {
 
     post.comments.unshift(req.body)
 
-    fs.writeFileSync("./posts.json", JSON.stringify(json))
+    fs.writeFileSync("./posts.json", JSON.stringify(json, null, 4))
 
     res.json(post)
 })
