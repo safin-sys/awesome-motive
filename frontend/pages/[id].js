@@ -1,15 +1,23 @@
 import { Container, Flex, Heading, Skeleton, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import AddComment from "../src/components/AddComment";
 import Comments from "../src/components/Comments";
 import Nav from "../src/components/Nav";
+import { getPosts } from "../src/redux/slices/postsSlice";
 
 const Post = () => {
     const router = useRouter();
     const { id } = router.query;
     const { title, content, date, comments } = useSelector(state => state.posts.find(post => post.id === id)) || {};
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getPosts())
+    }, [dispatch])
     return (
         <Container>
             <Head>

@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addPost } from "../redux/slices/postsSlice";
+import { createPost } from "../redux/slices/postsSlice";
 
 const CreatePostModal = ({ isOpen, onClose }) => {
     const [title, setTitle] = useState("");
@@ -24,6 +24,7 @@ const CreatePostModal = ({ isOpen, onClose }) => {
     const [date, setDate] = useState("");
     const toast = useToast();
     const dispatch = useDispatch();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const post = {
@@ -31,8 +32,10 @@ const CreatePostModal = ({ isOpen, onClose }) => {
             content,
             date,
             id: String(Date.now()),
+            comments: [],
         };
-        dispatch(addPost(post));
+
+        dispatch(createPost(post));
         toast({
             title: "Post created",
             description: "Your post has been created",
